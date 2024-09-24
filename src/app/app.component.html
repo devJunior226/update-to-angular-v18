@@ -1,0 +1,16 @@
+<h1
+  style="
+    text-align: center;
+    background: #0000ff;
+    padding: 2rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  "
+>
+  Pokemons City
+</h1>
+
+<h2>Name: {{ name }}</h2>
+<p>Points de vie: {{ life }}</p>
+<button style="margin-right: 10px;" (click)="incrementLife()">+</button>
+<button (click)="decrementLife()">-</button>
