@@ -1,16 +1,10 @@
-<h1
-  style="
-    text-align: center;
-    background: #0000ff;
-    padding: 2rem;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-  "
->
-  Pokemons City
-</h1>
+<h1 class="title">Pokemons City</h1>
+<div class="container">
+  <div class="content">
+    <p>Name: {{ name() }}</p>
+    <p>Life: {{ life() }}</p>
+  </div>
 
-<h2>Name: {{ name }}</h2>
-<p>Compteur {{ count }}</p>
-<button style="margin-right: 10px;" (click)="doCount()">+</button>
-<button (click)="decrementLife()">-</button>
+  <button class="btn" (click)="incrementLife()">Increment</button>
+  <button class="btn" (click)="decrementLife()">Decrement</button>
+</div>
