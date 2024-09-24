@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -7,12 +7,12 @@ import { Component, signal } from '@angular/core';
     template: `
     <div class="bg">
         <h2>Les Signals</h2>
-        <p>Current value: {{ counter() }}</p>
-        <p>Double value: {{ counterDouble() }}</p>
-        <button class="btn" (click)="increment()">
+        <p>Current value: {{ secondCounter() }}</p>
+        <!-- <p>Double value: {{ counterDouble() }}</p> -->
+        <button class="btn" (click)="incrementAgain()">
             Increment
         </button>
-        <button class="btn" (click)="reset()">
+        <button class="btn" (click)="resetAgain()">
             Reset
         </button>
     </div>
@@ -36,29 +36,34 @@ import { Component, signal } from '@angular/core';
 })
 export class AppComponent {
 
-    // Les signals
-    compteur = signal(0);
-
-    ngOnInit(): void {
-        console.log(this.compteur());
-
-        // Modifier la valeur du compteur
-        this.compteur.set(2);
-        console.log(this.compteur());
-    }
-
-    // Affiher nombre et double
+    // Les signals sans etats-derivés
     counter = signal(0);
-    counterDouble = signal(0);
+    counterDouble = computed(() => this.counter() * 2);
 
     increment() {
         this.counter.update(n => n + 1);
-        this.counterDouble.set(this.counter() * 2);
     }
 
     reset() {
         this.counter.set(0);
+    }
 
-        this.counterDouble.set(0);
+    // Gestion des effets de bord
+    secondCounter = signal(0);
+
+    constructor() {
+        // Will execute when a signal will change.
+        effect(() => {
+            console.log(`Le compteur a été mis à jour : ${this.secondCounter()}`);
+        })
+    }
+
+
+    incrementAgain() {
+        this.secondCounter.update(n => n + 1);
+    }
+
+    resetAgain() {
+        this.secondCounter.set(0);
     }
 }
