@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Component, signal } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -7,9 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
     imports: [],
     template: `
     <div class="bg">
-        <h2>La réactivité “Observable-based”</h2>
-        <p>Counter: {{ count$ | async }}</p>
-        <button (click)="increment()">Increment</button>
+        <h2>Les Signals</h2>
+        <p>Current value: {{ counter }}</p>
+        <button class="btn" (click)="incrementValue()">
+            Increment
+        </button>
+        <button class="btn" (click)="resetValue()">
+            Reset
+        </button>
     </div>
     `,
 
@@ -21,41 +25,42 @@ import { BehaviorSubject, Observable } from 'rxjs';
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
+        .btn {
+           padding: .5rem 2rem;
+           font-size: 1rem;
+           cursor: pointer;
+        }
     `]
 })
 export class AppComponent {
-    name: string = "Pikachu";
-    life: number = 21;
-
-    // 1. La réactivité “Value-based”
-    // count: number = 0;
-    // doCount() {
-    //     this.count++;
-    // }
-
-    // 2. La réactivité “Observable-based”
-    private countSubject = new BehaviorSubject<number>(0);
-    count$: Observable<number> = this.countSubject.asObservable();
-    increment() {
-        this.countSubject.next(this.countSubject.value + 1);
-    }
-
+    
+    // Les signals
+    compteur = signal(0);
 
     ngOnInit(): void {
-        let a_0: number = 1;
-        let a_1: number = 2;
-        let a_2 = a_0 + a_1;
-        console.log(a_2);
+        console.log(this.compteur());
+
+        // Modifier la valeur du compteur
+        this.compteur.set(2);
+        console.log(this.compteur());        
     }
 
-    incrementLife() {
-        this.life = this.life + 1;
-        if (this.life < 0) {
-            this.life = 0;
-        }
+    // Mettre a jour le compteur
+    doIncrement() {
+        this.compteur.update(value => value + 1);
     }
 
-    decrementLife() {
-        this.life = this.life - 1;
+    // Practice Signals: Without signals
+    counter: number = 0;
+
+    incrementValue() {
+        this.counter++;
     }
+
+    resetValue() {
+        this.counter = 0;
+    }
+
+    
 }
