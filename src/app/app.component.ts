@@ -7,12 +7,12 @@ import { Component, signal } from '@angular/core';
     template: `
     <div class="bg">
         <h2>Les Signals</h2>
-        <p>Current value: {{ counter }}</p>
-        <button class="btn" (click)="incrementValue()">
-            Increment
+        <p>Current value: {{ signalCounteur() }}</p>
+        <button class="btn" (click)="incrementSignalValue()">
+            Increment signal
         </button>
-        <button class="btn" (click)="resetValue()">
-            Reset
+        <button class="btn" (click)="resetSignalValue()">
+            Reset signal
         </button>
     </div>
     `,
@@ -34,7 +34,7 @@ import { Component, signal } from '@angular/core';
     `]
 })
 export class AppComponent {
-    
+
     // Les signals
     compteur = signal(0);
 
@@ -43,7 +43,7 @@ export class AppComponent {
 
         // Modifier la valeur du compteur
         this.compteur.set(2);
-        console.log(this.compteur());        
+        console.log(this.compteur());
     }
 
     // Mettre a jour le compteur
@@ -62,5 +62,14 @@ export class AppComponent {
         this.counter = 0;
     }
 
-    
+    // Practice Signals: With signals
+    signalCounteur = signal(0);
+
+    incrementSignalValue() {
+        this.signalCounteur.update(n => n + 1);
+    }
+
+    resetSignalValue() {
+        this.signalCounteur.set(0);
+    }
 }
