@@ -22,3 +22,7 @@
 ## Pipes
     $ ng generate pipe reverse
 
+## Services
+    $ ng generate service pokemon --skip-tests
+
+
