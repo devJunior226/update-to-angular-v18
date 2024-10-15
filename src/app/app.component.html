@@ -1,1 +1,40 @@
-<app-demo></app-demo>
+<h1 class="title">Pokédex</h1>
+<div class="container">
+  @for (pokemon of pokemons(); track pokemon.id) {
+  <h2>Name: {{ pokemon.name }}</h2>
+  <p>Taille: {{ size(pokemon) }}</p>
+  <img [src]="pokemon.picture" [alt]="pokemon.name" />
+  <p>Points de vie: {{ pokemon.life }}</p>
+
+  <button
+    class="btn"
+    (click)="incrementLife(pokemon)"
+    [disabled]="pokemon.life >= 30"
+  >
+    Augment +
+  </button>
+  <button
+    class="btn"
+    (click)="decrementLife(pokemon)"
+    [disabled]="pokemon.life <= 10"
+  >
+    Reduse -
+  </button>
+
+  }
+</div>
+
+<!-- <div class="container">
+  @for (pokemon of pokemons(); track pokemon.id) {
+  <h2>Name: {{ pokemon.name }}</h2>
+  @if (pokemon.life <=15) {
+  <p>Taille: Petit</p>
+  } @if (pokemon.life >=25) {
+  <p>Taille: Grand</p>
+  } @else {
+  <p>Taille: Moyen</p>
+  }
+  <img [src]="pokemon.picture" [alt]="pokemon.name" />
+  <p>Points de vie: {{ pokemon.life }}</p>
+  }
+</div> -->
