@@ -8,7 +8,7 @@
   <div class="row">
     @for(pokemon of pokemons(); track pokemon.id) {
     <div class="col-md-4 col-sm-6">
-      <div class="card mb-3">
+      <div class="card mb-3" appPokemonBorder [pokemonType]="pokemon.types[0]">
         <div class="row g-0">
           <div
             class="col-md-4 d-flex align-items-center justify-content-center bg-light"
@@ -26,7 +26,7 @@
                 Taille : {{ size(pokemon) }}
               </h6>
               <p class="card-text">Points de vie : {{ pokemon.life }}</p>
-              <div class="btn-group btn-group-sm" role="group">
+              <div class="btn-group" role="group">
                 <button
                   (click)="incrementLife(pokemon)"
                   class="btn btn-outline-light bg-primary"

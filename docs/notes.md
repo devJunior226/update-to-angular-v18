@@ -15,3 +15,6 @@
 5. Mettre a jour au fur et a mesure son appli en production
     $ ng build
     $ firebase deploy
+
+## Directives
+    $ ng generate directive pokemon-border --skip-tests

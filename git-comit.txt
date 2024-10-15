@@ -1,0 +1,71 @@
+commit 936746df530e6820931890284e9593e80779230f
+Author: Juldas RAMDE <ramde266@gmail.com>
+Date:   Tue Oct 15 07:19:26 2024 +0000
+
+    Ajout de bootstrap et design
+
+commit 8ccdf85c7c55daaa480fec4d7af97acb1c0eb9d2
+Author: Juldas RAMDE <ramde266@gmail.com>
+Date:   Tue Oct 15 07:01:39 2024 +0000
+
+    Affichage dynamique et directive structurelle.
+
+commit 137f76600acf4ca56859164126d3f069d26a20c1
+Author: Juldas RAMDE <ramde266@gmail.com>
+Date:   Tue Oct 15 06:10:59 2024 +0000
+
+    utilisation de @if
+
+commit 66f471e3e3f5719589d8c7a699316d85b193fdb0
+Author: Juldas RAMDE <ramde266@gmail.com>
+Date:   Tue Oct 15 05:59:26 2024 +0000
+
+    Liaison des données.
+
+commit 92f0d25ffbac36bcfbe69259c46e238e5fb2dff1
+Author: Juldas RAMDE <ramde266@gmail.com>
+Date:   Tue Oct 15 05:18:43 2024 +0000
+
+    Signals, ajout dynamique de la taille du pokemon.
+
+commit 0ddf093af1c5b74fe1e342516ace31333f17a35e
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 15:28:18 2024 +0000
+
+    Signals, display pokemon name and life.
+
+commit 1551d94712560a22d604df0943504eac20f4919b
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 14:30:50 2024 +0000
+
+    Signals, etat-derivé, effect
+
+commit 630480b02aee50bca829effcebc37995b531c3ca
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 14:00:44 2024 +0000
+
+    Use Signals to count double.
+
+commit 056f72a85ff9986c99d961e2574edb081738ffaa
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 13:53:57 2024 +0000
+
+    Practice-1: With Signals.
+
+commit 8e65cfa304e6184f1666c1c9e42ec6b2832ef2f8
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 13:46:37 2024 +0000
+
+    Practice-1: Without Signals.
+
+commit c4d52c859f02702ef531235c4dd67815d41cb843
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 13:19:30 2024 +0000
+
+    Value-based and Observable-based reactivity.
+
+commit c071e28193c2ec5bf74bc2b8822a40e9b3f331db
+Author: RAMDE <ramde266@gmail.com>
+Date:   Tue Sep 24 12:41:50 2024 +0000
+
+    Initial commit.
