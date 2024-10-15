@@ -18,3 +18,7 @@
 
 ## Directives
     $ ng generate directive pokemon-border --skip-tests
+
+## Pipes
+    $ ng generate pipe reverse
+
