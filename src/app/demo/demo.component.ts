@@ -16,20 +16,23 @@ import { Component, computed, effect, signal } from '@angular/core';
           <p>Life: {{ life() }}</p>
         </div>
 
+        @if(life() < 30) {
         <button
           class="btn"
           (click)="incrementLife()"
           [disabled]="life() >= maxLife"
         >
-          +
+          Augment +
         </button>
+        } @if (life() > 10) {
         <button
           class="btn"
           (click)="decrementLife()"
           [disabled]="life() <= minLife"
         >
-          -
+          Reduse -
         </button>
+        }
       </div>
     </div>
   `,
