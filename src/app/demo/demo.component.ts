@@ -10,13 +10,26 @@ import { Component, computed, effect, signal } from '@angular/core';
       <h1 class="title">Pokemons City</h1>
       <div class="container">
         <div class="content">
+          <img [src]="imageSrc()" [alt]="name()" />
           <p>Name: {{ name() }}</p>
           <p>Taille: {{ size() }}</p>
           <p>Life: {{ life() }}</p>
         </div>
 
-        <button class="btn" (click)="incrementLife()">+</button>
-        <button class="btn" (click)="decrementLife()">-</button>
+        <button
+          class="btn"
+          (click)="incrementLife()"
+          [disabled]="life() >= maxLife"
+        >
+          +
+        </button>
+        <button
+          class="btn"
+          (click)="decrementLife()"
+          [disabled]="life() <= minLife"
+        >
+          -
+        </button>
       </div>
     </div>
   `,
@@ -46,13 +59,20 @@ import { Component, computed, effect, signal } from '@angular/core';
         cursor: pointer;
         margin-right: 5px;
       }
-
     `,
   ],
 })
 export class DemoComponent {
+  minLife: number = 10;
+  maxLife: number = 30;
   name = signal('Pikachu');
   life = signal(21);
+  // imageSrc = signal(
+  //   'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png'
+  // );
+
+  imageSrc = signal('/assets/025.png');
+
   size = computed(() => {
     if (this.life() <= 15) {
       return 'Petit';
