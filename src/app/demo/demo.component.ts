@@ -5,20 +5,33 @@ import { Component, computed, effect, signal } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div class="bg">
-        <h2>Les Signals</h2>
-        <p>Current value: {{ secondCounter() }}</p>
-        <!-- <p>Double value: {{ counterDouble() }}</p> -->
-        <button class="btn" (click)="incrementAgain()">
-            Increment
-        </button>
-        <button class="btn" (click)="resetAgain()">
-            Reset
-        </button>
+    .
+    <div class="container">
+      <h1 class="title">Pokemons City</h1>
+      <div class="container">
+        <div class="content">
+          <p>Name: {{ name() }}</p>
+          <p>Taille: {{ size() }}</p>
+          <p>Life: {{ life() }}</p>
+        </div>
+
+        <button class="btn" (click)="incrementLife()">+</button>
+        <button class="btn" (click)="decrementLife()">-</button>
+      </div>
     </div>
-    `,
+  `,
   styles: [
     `
+      .container {
+        margin-left: 2rem;
+      }
+
+      .content {
+        border: 1px solid;
+        width: 50%;
+        margin: 12px 0;
+        padding: 10px;
+      }
       .bg {
         background: #0000ff;
         padding: 2rem;
@@ -31,38 +44,32 @@ import { Component, computed, effect, signal } from '@angular/core';
         padding: 0.5rem 2rem;
         font-size: 1rem;
         cursor: pointer;
+        margin-right: 5px;
       }
+
     `,
   ],
 })
 export class DemoComponent {
-  // Les signals sans etats-derivés
-  counter = signal(0);
-  counterDouble = computed(() => this.counter() * 2);
+  name = signal('Pikachu');
+  life = signal(21);
+  size = computed(() => {
+    if (this.life() <= 15) {
+      return 'Petit';
+    }
 
-  increment() {
-    this.counter.update((n) => n + 1);
+    if (this.life() >= 25) {
+      return 'Grand';
+    }
+
+    return 'Moyen';
+  });
+
+  incrementLife() {
+    this.life.update((n) => n + 1);
   }
 
-  reset() {
-    this.counter.set(0);
-  }
-
-  // Gestion des effets de bord
-  secondCounter = signal(0);
-
-  constructor() {
-    // Will execute when a signal will change.
-    effect(() => {
-      console.log(`Le compteur a été mis à jour : ${this.secondCounter()}`);
-    });
-  }
-
-  incrementAgain() {
-    this.secondCounter.update((n) => n + 1);
-  }
-
-  resetAgain() {
-    this.secondCounter.set(0);
+  decrementLife() {
+    this.life.update((n) => n - 1);
   }
 }
