@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Pokemon, PokemonList } from '../models/pokemon.model';
-import { POKEMON_LIST } from '../models/pokemon-list.fake';
+import {Injectable} from '@angular/core';
+import {Pokemon, PokemonList} from '../models/pokemon.model';
+import {POKEMON_LIST} from '../models/pokemon-list.fake';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonService {
-  constructor() {}
+  constructor() {
+  }
 
   /** Retourner la liste de tous les pokémons */
   getPokemons(): PokemonList {
